@@ -1,0 +1,32 @@
+- fs.trash.interval: 被永久删除前在回收站中保留的分钟数，配置为0表示不开启回收站功能。
+- dfs.replication: 默认副本数。
+- fs.trash.interval: 被永久删除前在回收站中保留的分钟数，配置为0表示不开启回收站功能。
+- dfs.namenode.handler.count: NameNode 处理 RPC 请求的线程数。
+- dfs.datanode.handler.count: DataNode 处理 RPC 请求的线程数。
+- hbase.regionserver.handler.count: RegionSever 处理 RPC 请求的线程数。
+- hbase.master.handler.count: Master 处理 RPC 请求的线程数。
+- zookeeper.session.timeout: HBase 连接 Zookeeper 的 session timeout 时间。
+- hbase.hregion.majorcompaction: 两次自动 Major Compaction 的时间间隔，设为0则禁用自动 Compaction。
+- hbase.hstore.blockingStoreFiles: 当一个 Store 中的 StoreFiles 达到该值时，会 block 写入，进行 Compaction。
+- hbase.regionserver.optionalcacheflushinterval: 一个 edit 版本在内存中 cache 的最长时间，超过该时间则自动 flush 到磁盘，设为0则禁用自动 flush。
+- hfile.block.cache.size: 读缓存 BlockCache 占用的堆内存比例，读多于写可适当增大该值。注：hbase.regionserver.global.memstore.size + hfile.block.cache.size <= 0.8
+- hbase.regionserver.global.memstore.size: 一台 RegionServer 上所有 MemStores 占用的堆内存比例， 写多于读可适当增大该值。注：hbase.regionserver.global.memstore.size + hfile.block.cache.size <= 0.8
+- hfile.index.block.max.size: HFile 索引块大小。索引块越小，需要的索引块越多，索引的层级越深；索引块过大，对索引块本身的扫描时间会显著的增加。
+- hbase.hregion.max.filesize: Region split 触发阈值。当一个 Region 里的所有 HFile 大小超过该值，region 自动 split。
+- hbase.master.logcleaner.ttl: 预写log（WAL）过期时间，超过这个时间 Master 会将该 WAL 删除。
+- hbase.ipc.server.callqueue.handler.factor: 调用队列个数因子，设为0表示所有的handler共用一个队列，设为1表示每个handler拥有自己的队列。
+- hbase.ipc.server.callqueue.read.ratio: 调用 read 请求队列个数因子，设为0表示不去分读写请求的队列，小于0.5表示读请求队列少于写请求队列，设为1表示只有1个写请求队列,其他都是读请求。
+- hbase.ipc.server.callqueue.scan.ratio: 调用 scan 请求队列个数因子，设为0和1表示在读请求队列中不区分 long-read 和 small-read, 小于0.5表示 long-read 数小于 small-read 数。
+- hbase.regionserver.msginterval: ResionServer 给 Master 发送消息的时间间隔，心跳间隔。
+- hbase.regionserver.logroll.period: HBase 预写log（WAL） roll 的时间间隔，便于后期删除过期 log。
+- hbase.regionserver.regionSplitLimit: 一个 RegionServer 上的 region 数达到这个 limit 后不再 split。
+- hbase.balancer.period: Master 每隔多久做一次 balance 操作。
+hbase.regions.slop: Rebalance 操作的前提条件，如果有 regionserver 上的 region 数超过 average + (average * slop) 则进行 Rebalance
+- io.storefile.bloom.block.size: 布隆过滤器块大小。
+- hbase.rpc.timeout: HBase client 应用 rpc 超时时间。
+- hbase.column.max.version: 新创建列簇的最大版本数。
+- hbase.security.authorization: 是否开启安全认证机制。
+- qingcloud.hbase.major.compact.hour: 设置每天手动 Major Compaction 的整点时间，设为-1则取消手动 Compaction。
+- qingcloud.phoenix.on.hbase.enable: 是否开启 Phoenix 查询引擎功能	。
+- phoenix.functions.allowUserDefinedFunctions: 是否开启 Phoenix UDF。
+- phoenix.transactions.enabled: 是否开启 Phoenix ACID 事务。
